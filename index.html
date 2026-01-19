@@ -103,6 +103,22 @@
             text-align: center;
             font-weight: 600;
         }
+        /*GREETING*/
+        
+        .greeting {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+        
+        .greeting div {
+            background: #121212;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+        }
         /* CATALOG */
         
         .catalog {
@@ -247,6 +263,9 @@
             .trust {
                 grid-template-columns: repeat(2, 1fr)
             }
+            .greeting {
+                grid-template-columns: repeat(2, 1fr)
+            }
             .testi-grid {
                 grid-template-columns: 1fr
             }
@@ -274,6 +293,11 @@
             }
             /* TRUST BADGE */
             .trust {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            /*greeting badge*/
+            .greeting {
                 grid-template-columns: 1fr 1fr;
                 gap: 12px;
             }
@@ -311,6 +335,24 @@
         
         .product {
             padding: 10px;
+        }
+        
+        .product {
+            position: relative;
+            /* kunci area kartu */
+        }
+        
+        .sold {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            font-size: 11px;
+            color: #9ca3af;
+            padding: 2px 6px;
+            border-radius: 6px;
+            line-height: 1;
+            pointer-events: none;
+            /* biar klik tetap ke product */
         }
         
         .product img {
@@ -352,6 +394,13 @@
             }
         }
         
+        @media (max-width: 480px) {
+            .greeting div {
+                font-size: 14px;
+                padding: 16px;
+            }
+        }
+        
         @media (max-width: 360px) {
             .hero h1 {
                 font-size: 24px;
@@ -366,6 +415,12 @@
             p {
                 font-size: 14px;
             }
+        }
+        
+        .sold {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 2px;
         }
     </style>
 </head>
@@ -525,7 +580,7 @@ justify-content:center;
             <div>🎁 Premium Quality</div>
             <div>⚡ Fast Shipping</div>
             <div>🎀 Gift Wrapping</div>
-            <div>✍️ Custom Card</div>
+            <div>✍️ Box Premium</div>
         </section>
 
         <!-- CATALOG -->
@@ -555,7 +610,7 @@ justify-content:center;
                     <small style="color:#9ca3af">Original Brand: Movere</small>
                     <div class="old">Rp250.000</div>
                     <div class="price">Rp180.000</div>
-
+                    <span class="sold">Terjual 1.2k</span>
                 </div>
 
 
@@ -581,6 +636,7 @@ justify-content:center;
                     <small style="color:#9ca3af">Original Brand: Movere</small>
                     <div class="old">Rp180.000</div>
                     <div class="price">Rp150.000</div>
+                    <span class="sold">Terjual 1k</span>
 
                 </div>
 
@@ -606,6 +662,7 @@ justify-content:center;
                     <small style="color:#9ca3af">Original Brand: Movere</small>
                     <div class="old">Rp250.000</div>
                     <div class="price">Rp180.000</div>
+                    <span class="sold">Terjual 1.5k</span>
 
                 </div>
 
@@ -614,11 +671,9 @@ justify-content:center;
   harga: 'Rp120.000',
   old: 'Rp150.000',
   images: [
-    'tasaja.jpeg',
-    'tas.webp',
-    'tas2.webp',
-    'tas3.webp',
-    'tas3.webp'
+    'tas,dompet,jamtangan.webp',
+    'tasjamtangan.jpeg',
+    'tasdompet.jpeg'
   ],
   desc: 'kado pria premium tas handbag. Sudah termasuk box & paper bag serta free request ucapan. Cocok untuk hadiah ulang tahun.'
 })">
@@ -629,6 +684,7 @@ justify-content:center;
                     <small style="color:#9ca3af">Original Brand: Movere</small>
                     <div class="old">Rp150.000</div>
                     <div class="price">Rp120.000</div>
+                    <span class="sold">Terjual 1.5k</span>
 
                 </div>
 
@@ -650,6 +706,7 @@ justify-content:center;
                     <small style="color:#9ca3af">Original Brand: Movere</small>
                     <div class="old">Rp120.000</div>
                     <div class="price">Rp80.000</div>
+                    <span class="sold">Terjual 1.9k</span>
 
                 </div>
 
@@ -674,6 +731,7 @@ justify-content:center;
                     <small style="color:#9ca3af">Original Brand: Movere</small>
                     <div class="old">Rp200.000</div>
                     <div class="price">Rp180.000</div>
+                    <span class="sold">Terjual 2k</span>
 
                 </div>
 
@@ -681,7 +739,13 @@ justify-content:center;
 
     </div>
     </section>
-
+    <!-- congratulations -->
+    <section class="greeting">
+        <div>🎁 Birthday</div>
+        <div>⚡ Graduation</div>
+        <div>🎀 Anniversarry</div>
+        <div>✍️ Custom Card</div>
+    </section>
 
     <!-- TESTIMONI -->
     <section class="testimoni">
@@ -832,6 +896,4 @@ padding:0 16px 12px;
 
 </body>
 
-
 </html>
-
