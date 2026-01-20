@@ -210,12 +210,6 @@
             margin-top: 64px;
         }
         
-        .testi-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        
         .testi {
             background: #1b1b1b;
             padding: 20px;
@@ -266,8 +260,8 @@
             .greeting {
                 grid-template-columns: repeat(2, 1fr)
             }
-            .testi-grid {
-                grid-template-columns: 1fr
+            .testi-slider {
+                grid-template-columns: repeat(2, 1fr)
             }
         }
         
@@ -380,7 +374,7 @@
         }
         /* TESTIMONI */
         
-        .testi-grid {
+        .testi-sider {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
@@ -421,6 +415,159 @@
             font-size: 11px;
             color: #9ca3af;
             margin-top: 2px;
+        }
+        
+        .wa-chat {
+            background: #0e0e0e;
+            border-radius: 16px;
+            padding: 14px;
+            font-size: 14px;
+        }
+        
+        .wa-header {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .wa-header img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .wa-sub {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        
+        .bubble {
+            max-width: 78%;
+            padding: 10px 12px;
+            border-radius: 14px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            position: relative;
+        }
+        
+        .left {
+            background: #1f2c33;
+            border-top-left-radius: 4px;
+        }
+        
+        .right {
+            background: #005c4b;
+            margin-left: auto;
+            border-top-right-radius: 4px;
+        }
+        
+        .time {
+            display: block;
+            font-size: 11px;
+            color: #cbd5e1;
+            text-align: right;
+            margin-top: 4px;
+        }
+        
+        .testi-sub {
+            color: #9ca3af;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        .testi-slider {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 8px;
+        }
+        
+        .testi-slider::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .testi-slider::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+        
+        .wa-chat {
+            min-width: 300px;
+            max-width: 320px;
+            background: #0e0e0e;
+            border-radius: 18px;
+            padding: 14px;
+            scroll-snap-align: start;
+            border: 1px solid #1f1f1f;
+        }
+        
+        .wa-header {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .wa-header img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .wa-sub {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        
+        .bubble {
+            max-width: 78%;
+            padding: 10px 12px;
+            border-radius: 14px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+        
+        .left {
+            background: #1f2c33;
+            border-top-left-radius: 4px;
+        }
+        
+        .right {
+            background: #005c4b;
+            margin-left: auto;
+            border-top-right-radius: 4px;
+        }
+        
+        .time {
+            display: block;
+            font-size: 11px;
+            color: #cbd5e1;
+            text-align: right;
+            margin-top: 4px;
+        }
+        
+        .wa-lastseen {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        
+        .check {
+            font-size: 12px;
+            margin-left: 4px;
+        }
+        
+        .check.sent {
+            color: #9ca3af;
+        }
+        
+        .check.read {
+            color: #53bdeb;
+            /* biru WA */
         }
     </style>
 </head>
@@ -515,6 +662,20 @@ Apakah masih tersedia?`;
             customText.value = "";
         }
     });
+    const slider = document.querySelector('.testi-slider');
+
+    let scrollAmount = 0;
+    setInterval(() => {
+        if (!slider) return;
+        scrollAmount += 320;
+        if (scrollAmount >= slider.scrollWidth) {
+            scrollAmount = 0;
+        }
+        slider.scrollTo({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }, 4000);
 </script>
 <!-- MODAL GALERI -->
 <div id="galleryModal" style="
@@ -594,6 +755,7 @@ justify-content:center;
   harga: 'Rp180.000',
   old: 'Rp250.000',
   images: [
+    'handbagdompetjam.png',
     'tas,dompet,jamtangan.webp',
     'tas.webp',
     'tas2.webp',
@@ -604,7 +766,7 @@ justify-content:center;
   desc: 'Paket kado pria premium yang berisi tas handbag, dompet kulit, dan jam tangan. Sudah termasuk box & paper bag serta free request ucapan. Cocok untuk hadiah ulang tahun.'
 })">
 
-                    <img src="tas,dompet,jamtangan.webp">
+                    <img src="handbagdompetjam.png">
                     <div class="badge">BEST SELLER</div>
                     <h3>Paket kado pria Best seller | handbag,jam tangan, dompet + free request</h3>
                     <small style="color:#9ca3af">Original Brand: Movere</small>
@@ -630,7 +792,7 @@ justify-content:center;
   desc: 'Paket kado pria premium yang berisi tas handbag dan jam tangan. Sudah termasuk box & paper bag serta free request ucapan. Cocok untuk hadiah ulang tahun.'
 })">
 
-                    <img src="tasjamtangan.jpeg">
+                    <img src="handbagjam.png">
                     <div class="badge">EXLUSIVE</div>
                     <h3>Paket kado pria Exlusive |handbag dan jam tangan</h3>
                     <small style="color:#9ca3af">Original Brand: Movere</small>
@@ -656,7 +818,7 @@ justify-content:center;
   desc: 'Paket kado pria premium yang berisi tas handbag,ikat pinggang dan jam tangan. Sudah termasuk box & paper bag serta free request ucapan. Cocok untuk hadiah ulang tahun.'
 })">
 
-                    <img src="tasjamgesper.webp">
+                    <img src="tas,dompet,jamtangan.webp">
                     <div class="badge">EXLUSIVE</div>
                     <h3>Paket kado pria |handbag,ikat pinggang dan jam tangan</h3>
                     <small style="color:#9ca3af">Original Brand: Movere</small>
@@ -678,7 +840,7 @@ justify-content:center;
   desc: 'kado pria premium tas handbag. Sudah termasuk box & paper bag serta free request ucapan. Cocok untuk hadiah ulang tahun.'
 })">
 
-                    <img src="tasaja.jpeg">
+                    <img src="handbag.png">
                     <div class="badge">HEMAT</div>
                     <h3>kado pria Handbag terlaris</h3>
                     <small style="color:#9ca3af">Original Brand: Movere</small>
@@ -726,7 +888,7 @@ justify-content:center;
   desc: 'Paket kado pria premium yang berisi dompet dan jam ikat pinggang kulit. Sudah termasuk box & paper bag serta free request ucapan. Cocok untuk hadiah ulang tahun.'
 })">
 
-                    <img src="dompet+ikatpinggang.webp">
+                    <img src="gesperdompet.png">
                     <h3>Paket kado ulang tahun pria Dompet dan ikat pinggang</h3>
                     <small style="color:#9ca3af">Original Brand: Movere</small>
                     <div class="old">Rp200.000</div>
@@ -751,41 +913,131 @@ justify-content:center;
     <section class="testimoni">
         <div class="container">
             <h2>Apa Kata Mereka?</h2>
+            <p class="testi-sub">💬 Testimoni asli dari chat WhatsApp customer kami</p>
 
-            <div class="testi-grid">
-                <div class="testi">
-                    <p>Nisa - Bandung </p>
-                    <img src="1.webp">
-                    <p>⭐️⭐️⭐️⭐️⭐️</p>
-                    <p>"Packing super rapi & mewah. Hadiahnya berasa mahal!"</p>
+            <div class="testi-slider" id="testiSlider">
+
+                <!-- CHAT 1 -->
+                <div class="wa-chat">
+                    <div class="wa-header">
+                        <img src="1.webp">
+                        <div>
+                            <strong>Nisa</strong>
+                            <div class="wa-lastseen">online</div>
+                        </div>
+                    </div>
+
+                    <div class="bubble left">
+                        kak packingnya rapih banget 😭<br> box nya keliatan mahal
+                        <span class="time">19.42</span>
+                    </div>
+
+                    <div class="bubble left">
+                        cowok aku langsung suka 🎁
+                        <span class="time">19.43</span>
+                    </div>
+
+                    <div class="bubble right">
+                        makasih kak 🙏<br> senang bisa bantu ya
+                        <span class="time">
+      19.44 <span class="check read">✓✓</span>
+                        </span>
+                    </div>
                 </div>
-                <div class="testi">
-                    <p>Rani - Bogor </p>
-                    <img src="2.webp">
-                    <p>⭐️⭐️⭐️⭐️⭐️</p>
-                    <p>"Sangat membantu buat yang bingung cari kado pria."</p>
+
+
+                <!-- CHAT 2 -->
+                <div class="wa-chat">
+                    <div class="wa-header">
+                        <img src="2.webp">
+                        <div>
+                            <strong>Rani</strong>
+                            <div class="wa-lastseen">online</div>
+                        </div>
+                    </div>
+
+                    <div class="bubble left">
+                        ini ngeabntu banget sih<br> pas cowok aku mepet ultah
+                        <span class="time">19.42</span>
+                    </div>
+
+                    <div class="bubble left">
+                        adminya fast respon 🎁
+                        <span class="time">19.43</span>
+                    </div>
+
+                    <div class="bubble right">
+                        siap kak 🙏<br> semoga suka ya 🎁
+                        <span class="time">
+      19.44 <span class="check read">✓✓</span>
+                        </span>
+                    </div>
                 </div>
-                <div class="testi">
-                    <p>Ayu - Jakarta </p>
-                    <img src="3.webp">
-                    <p>⭐️⭐️⭐️⭐️⭐️</p>
-                    <p>"Langsung checkout, gak ribet sama sekali."</p>
+
+                <!-- CHAT 3 -->
+                <div class="wa-chat">
+                    <div class="wa-header">
+                        <img src="3.webp">
+                        <div>
+                            <strong>Ayu</strong>
+                            <div class="wa-lastseen">online</div>
+                        </div>
+                    </div>
+
+                    <div class="bubble left">
+                        barang sesuai foto kak 👍
+                        <span class="time">19.42</span>
+                    </div>
+
+                    <div class="bubble left">
+                        pengiriman cepet juga
+                        <span class="time">19.43</span>
+                    </div>
+
+                    <div class="bubble right">
+                        terima kasih kak ✨
+                        <span class="time">
+      19.44 <span class="check read">✓✓</span>
+                        </span>
+                    </div>
                 </div>
-                <div class="testi">
-                    <p>Jessica - Jakarta </p>
-                    <img src="liliv.jpg">
-                    <p>⭐️⭐️⭐️⭐️⭐️</p>
-                    <p>"barang sesuai gambar dan pengiriman cepet bangett, next harus order lagi disini"</p>
+                <!-- CHAT 4 -->
+                <div class="wa-chat">
+                    <div class="wa-header">
+                        <img src="lia.webp">
+                        <div>
+                            <strong>Lia</strong>
+                            <div class="wa-lastseen">online</div>
+                        </div>
+                    </div>
+
+                    <div class="bubble left">
+                        ka makasih ya pacar aku suka banget
+                        <span class="time">08.42</span>
+                    </div>
+
+                    <div class="bubble left">
+                        next pasti order lagi di sini
+                        <span class="time">08.43</span>
+                    </div>
+
+                    <div class="bubble right">
+                        terima kasih kak ✨
+                        <span class="time">
+      09.44 <span class="check read">✓✓</span>
+                        </span>
+                    </div>
                 </div>
-                <div class="testi">
-                    <p>lia - tanggerang </p>
-                    <img src="lia.webp">
-                    <p>⭐️⭐️⭐️⭐️⭐️</p>
-                    <p>"terimakasih cowok aku suka banget"</p>
-                </div>
+
             </div>
         </div>
     </section>
+    <p style="text-align:center;color:#9ca3af;font-size:13px;margin-top:12px">
+        ⭐️ 2.000+ kado sudah dikirim ke seluruh Indonesia
+    </p>
+
+
+
 
 
     <!-- CTA -->
